@@ -1,7 +1,18 @@
 * EXCEPTION:
-* ERROR:
-Undefined method cow_frame_index for main.
+* ERROR - :rand0 method missing on ~Class~.
 
+#+begin_src ~Class#inspect~
+Numeric
+#+end_src ~Class#inspect~
 
+** Did you mean?
+Here's a list of methods that kind of look like :rand0.
+*** :rand
+
+The method named
+  :rand0
+doesn't exist on [Class, Numeric, ValueType, Comparable].
+
+(suggestions above)
 ** Backtrace:
-*** app/main.rb:17:in tick
+*** app/main.rb:16:in tick

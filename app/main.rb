@@ -8,6 +8,16 @@ def tick args
   args.state.camera.scale            ||= 1.0
   args.state.camera.show_empty_space ||= :yes
 
+  args.state.grass_patches ||= []
+
+  args.state.grass_spawn_tick ||= Kernel.tick_count
+
+  if args.state.grass_spawn_tick.elapsed_time >= 1.0.seconds
+    args.state.grass_patches << grass(Numeric.rand(200..2200), Numeric.rand(200..2200))
+    args.state.grass_spawn_tick = Kernel.tick_count
+  end
+
+
   args.state.cow ||= {
     x: 0,
     y: 0,
@@ -31,7 +41,8 @@ def tick args
   args.outputs[:scene].w = args.state.world.w
   args.outputs[:scene].h = args.state.world.h
 
-  args.outputs[:scene].solids << { x: 0, y: 0, w: args.state.world.w, h: args.state.world.h, r: 20, g: 60, b: 80 }
+  args.outputs[:scene].solids << { x: 0, y: 0, w: args.state.world.w, h: args.state.world.h, r: 50, g: 100, b: 70 }
+  args.outputs[:scene].solids << args.state.grass_patches
   args.outputs[:scene].sprites << args.state.cow
 
   # render camera
@@ -65,6 +76,19 @@ def tick args
   end
 
   args.state.camera.scale = args.state.camera.scale.greater(0.1)
+end
+
+def grass(x, y)
+  {
+    x: x,
+    y: y,
+    w: 64,
+    h: 64,
+    r: 110,
+    g: 120,
+    b: 50,
+    primitive_marker: :solid
+  }
 end
 
 def calc_scene_position args
