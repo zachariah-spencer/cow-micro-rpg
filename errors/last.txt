@@ -1,7 +1,7 @@
 * EXCEPTION:
 * ERROR:
-Undefined method cow for main.
+Undefined method cow_frame_index for main.
 
 
 ** Backtrace:
-*** app/main.rb:23:in tick
+*** app/main.rb:17:in tick
