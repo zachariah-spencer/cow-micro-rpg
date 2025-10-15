@@ -1,0 +1,7 @@
+* EXCEPTION:
+* ERROR:
+Undefined method cow for main.
+
+
+** Backtrace:
+*** app/main.rb:23:in tick
