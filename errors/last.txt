@@ -1,18 +1,19 @@
 * EXCEPTION:
-* ERROR - :rand0 method missing on ~Class~.
+* ERROR - :x method missing on ~Class~.
 
 #+begin_src ~Class#inspect~
-Numeric
+NIL
 #+end_src ~Class#inspect~
 
-** Did you mean?
-Here's a list of methods that kind of look like :rand0.
-*** :rand
+
 
 The method named
-  :rand0
-doesn't exist on [Class, Numeric, ValueType, Comparable].
+  :x
+doesn't exist on [NilClass].
 
 (suggestions above)
 ** Backtrace:
-*** app/main.rb:16:in tick
+*** app/main.rb:143:in calc_grazing
+*** app/main.rb:143:in calc_grazing
+*** app/main.rb:58:in calc
+*** app/main.rb:3:in tick
